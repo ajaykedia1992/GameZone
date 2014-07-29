@@ -1,0 +1,37 @@
+<html>
+   <head>
+      <title>change picture</title>
+      <script type = "text/javascript">
+
+
+
+
+
+        function changeImage()
+{
+    var img = document.getElementById("img");
+    img.src = images[x];
+    x++;
+
+    if(x >= images.length){
+        x = 0;
+    } 
+   var timerid = setInterval(changeImage(), 1000);
+}
+
+
+}
+
+var images = [], x = 0;
+
+images[0] = "1.jpg";
+images[1] = "b.jpg";
+images[2] = "c.jpg";
+
+
+      </script>
+   </head>
+   <body onload = "changeImage()">
+ <img id="img" src="startpicture.jpg">
+   </body>
+</html>

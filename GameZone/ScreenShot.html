@@ -1,0 +1,50 @@
+<html>
+<head>
+<style>
+.img1
+{
+height:200;
+width:1350;}
+</style>
+<head>
+<script type="javascript">
+function changeImage()
+{
+    var img = document.getElementById("img");
+    img.src = images[x];
+    x++;
+
+    if(x >= images.length){
+        x = 0;
+    } 
+
+    fadeImg(img, 100, true);
+    setTimeout("changeImage()", 30000);
+}
+
+function fadeImg(el, val, fade){
+    if(fade === true){
+        val--;
+    }else{
+        val ++;
+    }
+
+    if(val > 0 && val < 100){
+        el.style.opacity = val / 100;
+        setTimeout(function(){fadeImg(el, val, fade);}, 10);
+    }
+}
+
+var images = [],
+x = 0;
+
+images[0] = "6.jpg";
+images[1] = "7.jpg";
+images[2] = "8.jpg";
+setTimeout("changeImage()", 2000);
+</script>
+<body>
+<img class="img1" src=6.jpg">
+<img id="img" src="startpicture.jpg">
+</body>
+</html>

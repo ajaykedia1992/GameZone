@@ -1,0 +1,27 @@
+
+<?php
+if($_POST['btn']=='update'){
+$old_pass=$_POST['opass'];
+$new_pass=$_POST['npass'];
+if($old_pass==$$new_pass){
+$query="UPDATE details set password='$new_pass' where password='$old_pass'";
+mysql_query($query);
+}
+else{
+echo "Password Doesn't match!!";
+}
+?>
+<html>
+<body>
+<form action="update.php" method="post">
+<table align="center">
+<tr><td>Old Password</td> <td><input type="password" name="opass" size="20"/></td></tr>
+<tr>
+<tr><td>New Password</td> <td><input type="password" name="npass" size="20"/></td></tr>
+<tr>
+<td><input type="submit" name="update"/></td>
+<td><input type="reset" name="reset" value="Reset"/></td>
+</table>
+</form>
+</body>
+</html>
